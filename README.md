@@ -1,13 +1,9 @@
-Welcome! 
+Dear student,
 
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). 
+In the Research Master programs *Individual Differences and Assessment* and *Social and Behavioral Sciences* you will be using the statistical programming language R. As you might not have any or only limited experience using R, we provide you with this self-learning module. The module consists of this handout accompanied by exercises with solutions. At the beginning of the Master program, we expect you to have worked through the provided materials. Even if you already have experience using R, we highly recommend testing your skills with the provided exercises.
 
-This template provides a skeleton file structure that you can edit to create your book. 
+I hope that you will enjoy engaging with these materials and I am looking forward to meeting you during the Programming course in block 3.
 
-The contents inside the .Rmd files provide some pointers to help you get started, but feel free to also delete the content in each file and start fresh.
+Best wishes,
 
-Additional resources:
-
-The **bookdown** book: https://bookdown.org/yihui/bookdown/
-
-The **bookdown** package reference site: https://pkgs.rstudio.com/bookdown
+Felix Clouth
