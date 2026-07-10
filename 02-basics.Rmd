@@ -1,6 +1,6 @@
 # The Basics {#basics}
 
-Download link for Exercise 1: [exercise 1](./exercises/exercise1.docx)
+Download link for Exercise 1: [exercise 1](./docs/exercises/ProgrammingR_Exercise1.pdf)
 
 Download link for Answers to Exercise 1: [solutions exercise 1](./exercises/exercise1_solutions.R)
 
