@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Module 2: Data | A Minimal Book Example</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Module 2: Data | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Module 2: Data | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="John Doe" />
+
+
+<meta name="date" content="2026-06-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="basics.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="module-1-setup.html"><a href="module-1-setup.html"><i class="fa fa-check"></i><b>2</b> Module 1: Setup</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="module-1-setup.html"><a href="module-1-setup.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="module-1-setup.html"><a href="module-1-setup.html#installing-r"><i class="fa fa-check"></i><b>2.2</b> Installing R</a></li>
+<li class="chapter" data-level="2.3" data-path="module-1-setup.html"><a href="module-1-setup.html#installing-rstudio"><i class="fa fa-check"></i><b>2.3</b> Installing RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>3</b> The Basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basics.html"><a href="basics.html#navigating-rstudio"><i class="fa fa-check"></i><b>3.1</b> Navigating RStudio</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="basics.html"><a href="basics.html#console-window"><i class="fa fa-check"></i><b>3.1.1</b> Console Window</a></li>
+<li class="chapter" data-level="3.1.2" data-path="basics.html"><a href="basics.html#editor-window"><i class="fa fa-check"></i><b>3.1.2</b> Editor Window</a></li>
+<li class="chapter" data-level="3.1.3" data-path="basics.html"><a href="basics.html#workspace-window"><i class="fa fa-check"></i><b>3.1.3</b> Workspace Window</a></li>
+<li class="chapter" data-level="3.1.4" data-path="basics.html"><a href="basics.html#other-window"><i class="fa fa-check"></i><b>3.1.4</b> “Other” Window</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="basics.html"><a href="basics.html#data-as-objects"><i class="fa fa-check"></i><b>3.2</b> Data as Objects</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="basics.html"><a href="basics.html#vectors"><i class="fa fa-check"></i><b>3.2.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.2.2" data-path="basics.html"><a href="basics.html#variables"><i class="fa fa-check"></i><b>3.2.2</b> Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="basics.html"><a href="basics.html#functions"><i class="fa fa-check"></i><b>3.3</b> Functions</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="basics.html"><a href="basics.html#finding-help"><i class="fa fa-check"></i><b>3.3.1</b> Finding Help</a></li>
+<li class="chapter" data-level="3.3.2" data-path="basics.html"><a href="basics.html#indexing"><i class="fa fa-check"></i><b>3.3.2</b> Indexing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="module-2-data.html"><a href="module-2-data.html"><i class="fa fa-check"></i><b>4</b> Module 2: Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="module-2-data.html"><a href="module-2-data.html#types-of-data"><i class="fa fa-check"></i><b>4.1</b> Types of Data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="module-2-data.html"><a href="module-2-data.html#scalars-vectors-matrices"><i class="fa fa-check"></i><b>4.1.1</b> Scalars, Vectors, &amp; Matrices</a></li>
+<li class="chapter" data-level="4.1.2" data-path="module-2-data.html"><a href="module-2-data.html#lists-data-frames"><i class="fa fa-check"></i><b>4.1.2</b> Lists &amp; Data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="module-2-data.html"><a href="module-2-data.html#reading-writing-data"><i class="fa fa-check"></i><b>4.2</b> Reading &amp; Writing Data</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="module-2-data.html"><a href="module-2-data.html#inspecting-summarizing-data"><i class="fa fa-check"></i><b>4.2.1</b> Inspecting &amp; Summarizing data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="module-2-data" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Module 2: Data<a href="module-2-data.html#module-2-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="types-of-data" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Types of Data<a href="module-2-data.html#types-of-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have so far seen the following types of <u>Data</u>: Integer, Double, Character, and Logical. These can be organized as follows:</p>
+<p><img src="images/DataGraph1.png" /><!-- --></p>
+<p>A special type of Integer is the <u>Factor</u>. A factor is a vector of values. The values refer to some category, the “levels”. For example:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="module-2-data.html#cb82-1" tabindex="-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>), </span>
+<span id="cb82-2"><a href="module-2-data.html#cb82-2" tabindex="-1"></a>                 <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span>
+<span id="cb82-3"><a href="module-2-data.html#cb82-3" tabindex="-1"></a></span>
+<span id="cb82-4"><a href="module-2-data.html#cb82-4" tabindex="-1"></a>gender</span></code></pre></div>
+<pre><code>## [1] Male   Female Female Female Male  
+## Levels: Male Female</code></pre>
+<p>Just like any other type of vector, a factor can be indexed in the same way:</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="module-2-data.html#cb84-1" tabindex="-1"></a>gender[<span class="dv">4</span>]</span></code></pre></div>
+<pre><code>## [1] Female
+## Levels: Male Female</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="module-2-data.html#cb86-1" tabindex="-1"></a>gender[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] Male   Female Female
+## Levels: Male Female</code></pre>
+<p>You can see the possible categories of the factor by using the <code>levels()</code> function:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="module-2-data.html#cb88-1" tabindex="-1"></a><span class="fu">levels</span>(gender)</span></code></pre></div>
+<pre><code>## [1] &quot;Male&quot;   &quot;Female&quot;</code></pre>
+<p>You can also <em>change</em> the categories of the factor values by using the <code>levels()</code> function:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="module-2-data.html#cb90-1" tabindex="-1"></a><span class="fu">levels</span>(gender) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Harry&quot;</span>, <span class="st">&quot;Sally&quot;</span>)</span>
+<span id="cb90-2"><a href="module-2-data.html#cb90-2" tabindex="-1"></a></span>
+<span id="cb90-3"><a href="module-2-data.html#cb90-3" tabindex="-1"></a>gender</span></code></pre></div>
+<pre><code>## [1] Harry Sally Sally Sally Harry
+## Levels: Harry Sally</code></pre>
+<p>Under the hood, a factor is a vector of integers. Each integer number is then associated with a name (like Harry or Sally, or Male or Female), which is displayed as the output of the factor.</p>
+<p>We can see the underlying numerical structure by using the <code>as.numeric()</code> function:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="module-2-data.html#cb92-1" tabindex="-1"></a><span class="fu">as.numeric</span>(gender)</span></code></pre></div>
+<pre><code>## [1] 1 2 2 2 1</code></pre>
+<div id="scalars-vectors-matrices" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Scalars, Vectors, &amp; Matrices<a href="module-2-data.html#scalars-vectors-matrices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="scalars" class="section level4 hasAnchor" number="4.1.1.1">
+<h4><span class="header-section-number">4.1.1.1</span> Scalars<a href="module-2-data.html#scalars" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The most basic type of data is the <u>scalar</u>. Scalars hold one value at a time. We can use scalars as the building blocks for more complex data types. Effectively, a scalar is a vector of length 1. Examples of scalars:</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="module-2-data.html#cb94-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/DataGraph2.png&quot;</span>)</span></code></pre></div>
+<p><img src="images/DataGraph2.png" /><!-- --></p>
+</div>
+<div id="vectors-1" class="section level4 hasAnchor" number="4.1.1.2">
+<h4><span class="header-section-number">4.1.1.2</span> Vectors<a href="module-2-data.html#vectors-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The next type of data is the <u>vector</u>. A vector holds multiple values at the same time, but consists of only one dimension. We have already encountered atomic vectors throughout the previous module.  When we discuss vectors throughout these modules we are referring to atomic vectors, meaning all elements in the vector are of the same data type. Examples of vectors:</p>
+<p><img src="images/DataGraph3.png" /><!-- --></p>
+</div>
+<div id="matrices" class="section level4 hasAnchor" number="4.1.1.3">
+<h4><span class="header-section-number">4.1.1.3</span> Matrices<a href="module-2-data.html#matrices" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A <u>matrix</u> is an extension of the atomic vector. This means that every element in a matrix has to be of the same type. It functions similarly to a vector, only that each element in the matrix is organized along two dimensions. Example of a matrix:</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="module-2-data.html#cb95-1" tabindex="-1"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb95-2"><a href="module-2-data.html#cb95-2" tabindex="-1"></a></span>
+<span id="cb95-3"><a href="module-2-data.html#cb95-3" tabindex="-1"></a>my_matrix</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<p>Because a matrix is organised along two dimensions, you have to index it along both dimensions.</p>
+<p><img src="images/MatrixGraph.png" /><!-- --></p>
+<p>Indexing a matrix is done by indicating the row &amp; column in the following way:</p>
+<p><code>my_matrix[row_nr, col_nr]</code></p>
+<p><img src="images/MatrixGraph2.png" /><!-- --></p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="module-2-data.html#cb97-1" tabindex="-1"></a>my_matrix[<span class="dv">1</span>, ]</span></code></pre></div>
+<pre><code>## [1] 1 4 7</code></pre>
+<p><img src="images/MatrixGraph3.png" /><!-- --></p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="module-2-data.html#cb99-1" tabindex="-1"></a>my_matrix[, <span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<p><img src="images/MatrixGraph4.png" /><!-- --></p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="module-2-data.html#cb101-1" tabindex="-1"></a>my_matrix[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6</code></pre>
+<p><img src="images/MatrixGraph5.png" /><!-- --></p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="module-2-data.html#cb103-1" tabindex="-1"></a>my_matrix[<span class="dv">1</span>, <span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<p><img src="images/MatrixGraph6.png" /><!-- --></p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="module-2-data.html#cb105-1" tabindex="-1"></a>my_matrix[<span class="dv">3</span>, <span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+</div>
+</div>
+<div id="lists-data-frames" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Lists &amp; Data frames<a href="module-2-data.html#lists-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="lists" class="section level4 hasAnchor" number="4.1.2.1">
+<h4><span class="header-section-number">4.1.2.1</span> Lists<a href="module-2-data.html#lists" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>So far, we have only looked at <u>Atomic</u> data. Atomic data requires all elements in it to be of the same type. The other category of data is <u>List</u> data. In Lists elements can be of different types. Here is an example:</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="module-2-data.html#cb107-1" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, </span>
+<span id="cb107-2"><a href="module-2-data.html#cb107-2" tabindex="-1"></a>                <span class="st">&quot;a&quot;</span>, </span>
+<span id="cb107-3"><a href="module-2-data.html#cb107-3" tabindex="-1"></a>                <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>), </span>
+<span id="cb107-4"><a href="module-2-data.html#cb107-4" tabindex="-1"></a>                <span class="fu">c</span>(<span class="fl">2.3</span>, <span class="fl">5.9</span>))</span>
+<span id="cb107-5"><a href="module-2-data.html#cb107-5" tabindex="-1"></a></span>
+<span id="cb107-6"><a href="module-2-data.html#cb107-6" tabindex="-1"></a>my_list</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1 2 3
+## 
+## [[2]]
+## [1] &quot;a&quot;
+## 
+## [[3]]
+## [1]  TRUE FALSE  TRUE
+## 
+## [[4]]
+## [1] 2.3 5.9</code></pre>
+<p>You add elements to a list by creating objects as you would any other object and separating them by a <code>,</code>. These objects can be of any type or length.</p>
+<p><img src="images/ListExample1.png" /><!-- --></p>
+</div>
+<div id="data-frames" class="section level4 hasAnchor" number="4.1.2.2">
+<h4><span class="header-section-number">4.1.2.2</span> Data frames<a href="module-2-data.html#data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><u>Data frames</u>are a special type of list consisting entirely of named vectors, where every element within the list must be of the same length. Additionally, because it is made up of vectors, every element within each of these vectors must be of the same type.</p>
+<p>Data frames are similar to the datasets you are used to with rows and columns. A data frame is constructed using the <code>data.frame()</code> function. Data frames are created similarly to lists. Usually when we construct a data frame, we name the vectors we add as elements in the following way:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="module-2-data.html#cb109-1" tabindex="-1"></a>StarWars <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">&quot;Luke&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;R2-D2&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia&quot;</span>), </span>
+<span id="cb109-2"><a href="module-2-data.html#cb109-2" tabindex="-1"></a>                       <span class="at">height =</span> <span class="fu">c</span>(<span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">96</span>, <span class="dv">202</span>, <span class="dv">150</span>))</span>
+<span id="cb109-3"><a href="module-2-data.html#cb109-3" tabindex="-1"></a></span>
+<span id="cb109-4"><a href="module-2-data.html#cb109-4" tabindex="-1"></a>StarWars</span></code></pre></div>
+<pre><code>##          name height
+## 1        Luke    172
+## 2       C-3PO    167
+## 3       R2-D2     96
+## 4 Darth Vader    202
+## 5        Leia    150</code></pre>
+<p>The vectors added as elements into the data frame form the columns of the data frame. The rows are the values for each column at a particular horizontal index</p>
+<p><img src="images/DataFrameRowExample.png" /><!-- --></p>
+<p><img src="images/DataFrameColExample.png" /><!-- --></p>
+<p>You can index a data frame in the same as a matrix:</p>
+<p><code>my_data_frame[row_nr, col_nr]</code></p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="module-2-data.html#cb111-1" tabindex="-1"></a>StarWars[<span class="dv">2</span>, <span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;C-3PO&quot;</code></pre>
+<p><img src="images/DataFrameIndexing1.png" /><!-- --></p>
+<p>You can also index columns using the <code>$</code> sign, like: <code>my_data_frame$variable</code></p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="module-2-data.html#cb113-1" tabindex="-1"></a>StarWars<span class="sc">$</span>height</span></code></pre></div>
+<pre><code>## [1] 172 167  96 202 150</code></pre>
+<p><img src="images/DataFrameIndexing2.png" /><!-- --></p>
+<p>You can also use the <code>$</code> <em>add</em> columns.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="module-2-data.html#cb115-1" tabindex="-1"></a>StarWars<span class="sc">$</span>evil <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb115-2"><a href="module-2-data.html#cb115-2" tabindex="-1"></a></span>
+<span id="cb115-3"><a href="module-2-data.html#cb115-3" tabindex="-1"></a>StarWars</span></code></pre></div>
+<pre><code>##          name height  evil
+## 1        Luke    172 FALSE
+## 2       C-3PO    167 FALSE
+## 3       R2-D2     96 FALSE
+## 4 Darth Vader    202  TRUE
+## 5        Leia    150 FALSE</code></pre>
+<p>There are thus multiple ways to index the same element from a data frame. Each of the following returns the <code>"Leia"</code> from the above data frame.</p>
+<table>
+<caption><span id="tab:df-indexing">Table 4.1: </span>Indexing a Data Frame</caption>
+<colgroup>
+<col width="22%" />
+<col width="77%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Indexing</th>
+<th align="left">What</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">StarWars[5, 1]</td>
+<td align="left">We index the element in the 5th row from the 1st column.</td>
+</tr>
+<tr class="even">
+<td align="left">StarWars[5, “name”]</td>
+<td align="left">We index the element in the 5th row from the “name” column.</td>
+</tr>
+<tr class="odd">
+<td align="left">StarWars$name[5]</td>
+<td align="left">We index the “name” column, and from that we index the 5th element.</td>
+</tr>
+</tbody>
+</table>
+<p><img src="images/DataFrameIndexing3.png" /><!-- --></p>
+</div>
+<div id="combining-elements-in-a-list" class="section level4 hasAnchor" number="4.1.2.3">
+<h4><span class="header-section-number">4.1.2.3</span> Combining Elements in a List<a href="module-2-data.html#combining-elements-in-a-list" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You can combine <u>all</u> types of objects in a list. Every element within an object must be of the same type, but besides that all sorts of objects can be put into a list: scalars, vectors, matrices, data frames, yes even lists can go into lists (and then you can even put lists in those lists). For example:</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="module-2-data.html#cb117-1" tabindex="-1"></a>SWList <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">series =</span> <span class="st">&quot;Star Wars&quot;</span>,</span>
+<span id="cb117-2"><a href="module-2-data.html#cb117-2" tabindex="-1"></a>               <span class="at">movie_order =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>),</span>
+<span id="cb117-3"><a href="module-2-data.html#cb117-3" tabindex="-1"></a>               <span class="at">leads =</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">&quot;Luke&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;R2-D2&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, </span>
+<span id="cb117-4"><a href="module-2-data.html#cb117-4" tabindex="-1"></a><span class="st">&quot;Leia&quot;</span>),</span>
+<span id="cb117-5"><a href="module-2-data.html#cb117-5" tabindex="-1"></a>               <span class="at">height =</span> <span class="fu">c</span>(<span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">96</span>, <span class="dv">202</span>, <span class="dv">150</span>),</span>
+<span id="cb117-6"><a href="module-2-data.html#cb117-6" tabindex="-1"></a>               <span class="at">evil =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)))</span>
+<span id="cb117-7"><a href="module-2-data.html#cb117-7" tabindex="-1"></a></span>
+<span id="cb117-8"><a href="module-2-data.html#cb117-8" tabindex="-1"></a>SWList</span></code></pre></div>
+<pre><code>## $series
+## [1] &quot;Star Wars&quot;
+## 
+## $movie_order
+## [1] 4 5 6 1 2 3 7 8 9
+## 
+## $leads
+##          name height  evil
+## 1        Luke    172 FALSE
+## 2       C-3PO    167 FALSE
+## 3       R2-D2     96 FALSE
+## 4 Darth Vader    202  TRUE
+## 5        Leia    150 FALSE</code></pre>
+<p><img src="images/ListExample2.png" /><!-- --></p>
+<p>In practice, lists are often used to structure a function’s output. In other words, if you run a statistical analysis, you will get different types of output, each stored in a different item of a list.</p>
+<p>If you do not name my objects, R will give them numbers in double square brackets.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="module-2-data.html#cb119-1" tabindex="-1"></a><span class="fu">list</span>(<span class="st">&quot;Star Wars&quot;</span>,</span>
+<span id="cb119-2"><a href="module-2-data.html#cb119-2" tabindex="-1"></a>     <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>),</span>
+<span id="cb119-3"><a href="module-2-data.html#cb119-3" tabindex="-1"></a>     <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">&quot;Luke&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;R2-D2&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia&quot;</span>),</span>
+<span id="cb119-4"><a href="module-2-data.html#cb119-4" tabindex="-1"></a>                <span class="at">height =</span> <span class="fu">c</span>(<span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">96</span>, <span class="dv">202</span>, <span class="dv">150</span>),</span>
+<span id="cb119-5"><a href="module-2-data.html#cb119-5" tabindex="-1"></a>                <span class="at">evil =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)))</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;Star Wars&quot;
+## 
+## [[2]]
+## [1] 4 5 6 1 2 3 7 8 9
+## 
+## [[3]]
+##          name height  evil
+## 1        Luke    172 FALSE
+## 2       C-3PO    167 FALSE
+## 3       R2-D2     96 FALSE
+## 4 Darth Vader    202  TRUE
+## 5        Leia    150 FALSE</code></pre>
+<p>Just like with data frames you can use the <code>$</code> to index a list if the objects in it are named.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="module-2-data.html#cb121-1" tabindex="-1"></a>SWList<span class="sc">$</span>movie_order</span></code></pre></div>
+<pre><code>## [1] 4 5 6 1 2 3 7 8 9</code></pre>
+<p>By using a <code>$</code> to index from a list, you are taking the object in the list you want to index out of the list and returning it as its own element unto the console. In the example above that means that we are returning to the console the vector <code>movie_order</code> and its contents.</p>
+<p>If you index using square brackets <code>[...]</code>, you will actually return a list containing only the element you indexed. Thus:</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="module-2-data.html#cb123-1" tabindex="-1"></a>SWList[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## $movie_order
+## [1] 4 5 6 1 2 3 7 8 9</code></pre>
+<p>Returns a list containing only one object, the movie_order vector. We will demonstrate the importance of this difference when we look at <u>nested indexing</u> in a list.</p>
+<p>Because lists can contain elements containing other elements (which in turn can contain more elements, etc.), it is at times necessary to index an element from within a list, and then to index again within the element you have just indexed. To make this more understandable, let us return to our example and attempt to index the movie order of the 3<sup>rd</sup> movie:</p>
+<p>First, we index the <code>movie_order</code> variable from the list, as shown above:</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="module-2-data.html#cb125-1" tabindex="-1"></a>SWList<span class="sc">$</span>movie_order</span></code></pre></div>
+<pre><code>## [1] 4 5 6 1 2 3 7 8 9</code></pre>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="module-2-data.html#cb127-1" tabindex="-1"></a><span class="co"># OR</span></span>
+<span id="cb127-2"><a href="module-2-data.html#cb127-2" tabindex="-1"></a></span>
+<span id="cb127-3"><a href="module-2-data.html#cb127-3" tabindex="-1"></a>SWList[[<span class="dv">2</span>]]</span></code></pre></div>
+<pre><code>## [1] 4 5 6 1 2 3 7 8 9</code></pre>
+<p>Then we add another set of <code>[...]</code> after this first indexing to index within this vector:</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="module-2-data.html#cb129-1" tabindex="-1"></a>SWList<span class="sc">$</span>movie_order[<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="module-2-data.html#cb131-1" tabindex="-1"></a><span class="co"># OR</span></span>
+<span id="cb131-2"><a href="module-2-data.html#cb131-2" tabindex="-1"></a></span>
+<span id="cb131-3"><a href="module-2-data.html#cb131-3" tabindex="-1"></a>SWList[[<span class="dv">2</span>]][<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p><img src="images/NestedIndexing1.png" /><!-- --></p>
+<p>You can also do nested indexing of a data frame inside of a list in the following ways:</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="module-2-data.html#cb133-1" tabindex="-1"></a>SWList<span class="sc">$</span>leads[<span class="dv">2</span>, <span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="module-2-data.html#cb135-1" tabindex="-1"></a><span class="co"># OR</span></span>
+<span id="cb135-2"><a href="module-2-data.html#cb135-2" tabindex="-1"></a></span>
+<span id="cb135-3"><a href="module-2-data.html#cb135-3" tabindex="-1"></a>SWList[[<span class="dv">3</span>]][<span class="dv">2</span>, <span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p><img src="images/NestedIndexing2.png" /><!-- --></p>
+<p>However, note here that if we indexed our <code>movie_order</code> vector using only single square brackets like so:</p>
+<p><code>SWList[2]</code></p>
+<p>We could not index from the vector, as we have only created a new list containing one element and we are now indexing a third element in that list, which it does not have. Therefore, R returns an empty list:</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="module-2-data.html#cb137-1" tabindex="-1"></a>SWList[<span class="dv">2</span>][<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## $&lt;NA&gt;
+## NULL</code></pre>
+<p>START EXCERCISE 2.1</p>
+</div>
+</div>
+</div>
+<div id="reading-writing-data" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Reading &amp; Writing Data<a href="module-2-data.html#reading-writing-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>So far, we have created all the data that we have used ourselves from scratch in R. Usually, when we are analysing data in research, we make use of datasets from an external source. For example, a .csv file exported from Qualtrics containing all the responses of your participants. We will now look at how we can load in data from external sources into R, and then save them to another file.</p>
+<div id="build-in-datasets" class="section level4 hasAnchor" number="4.2.0.1">
+<h4><span class="header-section-number">4.2.0.1</span> Build-in datasets<a href="module-2-data.html#build-in-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>First, there are datasets available in R. These can be accessed just like any other object. For example, the <code>sleep</code> dataset can be accessed by just typing <code>sleep</code>:</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="module-2-data.html#cb139-1" tabindex="-1"></a>sleep</span></code></pre></div>
+<pre><code>##    extra group ID
+## 1    0.7     1  1
+## 2   -1.6     1  2
+## 3   -0.2     1  3
+## 4   -1.2     1  4
+## 5   -0.1     1  5
+## 6    3.4     1  6
+## 7    3.7     1  7
+## 8    0.8     1  8
+## 9    0.0     1  9
+## 10   2.0     1 10
+## 11   1.9     2  1
+## 12   0.8     2  2
+## 13   1.1     2  3
+## 14   0.1     2  4
+## 15  -0.1     2  5
+## 16   4.4     2  6
+## 17   5.5     2  7
+## 18   1.6     2  8
+## 19   4.6     2  9
+## 20   3.4     2 10</code></pre>
+<p>We can index this dataset like any other data frame:</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="module-2-data.html#cb141-1" tabindex="-1"></a>sleep<span class="sc">$</span>group</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2
+## Levels: 1 2</code></pre>
+<p>If you want to know more about the contents of the dataset, you can type <code>?sleep</code> just you would for a function.</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="module-2-data.html#cb143-1" tabindex="-1"></a>?sleep</span></code></pre></div>
+<p>If you want to work with this dataset further, it is advisable to store it as a separate object. This avoids similar issues as demonstrated with <code>pi</code> in module 1.</p>
+<p><code>sleep_data &lt;- sleep</code></p>
+</div>
+<div id="r-packages-package-datasets" class="section level4 hasAnchor" number="4.2.0.2">
+<h4><span class="header-section-number">4.2.0.2</span> R Packages &amp; Package Datasets<a href="module-2-data.html#r-packages-package-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Sometimes R packages also come with their own built-in datasets. These are loaded in the same way as the built-in R datasets. To access these datasets you do need to have the respective package installed and activated.</p>
+<p>R packages are extensions to Rs functionality created by members of the R community. Most of the R packages you will work with are hosted on the Comprehensive R Archive Network (<u>CRAN</u>). Packages hosted on this archive can be installed using the following format of code:</p>
+<p><code>install.packages("package_name")</code> You will only need to install your package onto your system once.</p>
+<p>However, each time you start an R session, you will need to activate the package using the following code:</p>
+<p><code>library(package_name)</code></p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="module-2-data.html#cb144-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>) <span class="co">#only run this once</span></span>
+<span id="cb144-2"><a href="module-2-data.html#cb144-2" tabindex="-1"></a></span>
+<span id="cb144-3"><a href="module-2-data.html#cb144-3" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co">#run this everytime you start an R session</span></span></code></pre></div>
+<p>It is generally advisable to run your <code>install.packages()</code> functions in the console and not store them in your script.</p>
+<p>It is good coding standards to put ALL your library functions at the top of your R script.</p>
+<p>Sometimes you will get the following pop-up when installing a package:</p>
+<p><img src="images/InstallingPackage1.png" /><!-- --></p>
+<p>This means that there has been a recent update that is not available for your operating system yet. You have two options:</p>
+<ul>
+<li><p>“Yes”: build the latest version from source binary. Takes longer, you need extra packages, but you’ll have the latest version.</p></li>
+<li><p>“No”: build the previous version from binary files. A lot faster, no extra packages needed, but you won’t have the latest version (often not a problem).</p></li>
+</ul>
+</div>
+<div id="loading-data-files" class="section level4 hasAnchor" number="4.2.0.3">
+<h4><span class="header-section-number">4.2.0.3</span> Loading Data Files<a href="module-2-data.html#loading-data-files" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You can also load in external files containing data into R. These will often be files exported from survey software like Qualtrics, or found through a data archive on the internet. Files that look like the following:</p>
+<p><img src="images/ExampleDataCSV.png" /><!-- --></p>
+<p>You can load these types of files in using dedicated R functions. The function you need depend on the file type.</p>
+<table>
+<caption><span id="tab:data-load-types">Table 4.2: </span>Data Loading Functions</caption>
+<colgroup>
+<col width="12%" />
+<col width="77%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">Usage</th>
+<th align="left">File.Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">read.table()</td>
+<td align="left">For text files</td>
+<td align="left">.txt</td>
+</tr>
+<tr class="even">
+<td align="left">read.csv()</td>
+<td align="left">For comma separated spread sheets</td>
+<td align="left">.csv</td>
+</tr>
+<tr class="odd">
+<td align="left">read.csv2()</td>
+<td align="left">For comma separated spread sheets, but different decimal separators (see ?read.csv2)</td>
+<td align="left">.csv</td>
+</tr>
+<tr class="even">
+<td align="left">load()</td>
+<td align="left">For R data files</td>
+<td align="left">.RData</td>
+</tr>
+<tr class="odd">
+<td align="left">read_spss()</td>
+<td align="left">For SPSS files, from the package “foreign”.</td>
+<td align="left">.sav</td>
+</tr>
+<tr class="even">
+<td align="left">read_excell()</td>
+<td align="left">For Excel files, from the package “readxl”</td>
+<td align="left">.xlsx</td>
+</tr>
+<tr class="odd">
+<td align="left">import()</td>
+<td align="left">From the package “rio”. Load any type of data (can be buggy)</td>
+<td align="left">all</td>
+</tr>
+</tbody>
+</table>
+<p>To load a file, you simply put the file path to the dataset relative to your working directory as a character string in the function name, as follows:</p>
+<p><code>read.csv("data/sleep_data.csv")</code></p>
+<p>To know where you have set your current working directory to, use the following code:</p>
+<p><code>getwd()</code></p>
+<p>To set your working directory to the location of your analysis script do:</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="module-2-data.html#cb145-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/SetwdGuide.png&quot;</span>)</span></code></pre></div>
+<p><img src="images/SetwdGuide.png" /><!-- --></p>
+<p><u>Note</u>: if the first row in the dataset contains the variable names, you will often have to specify the header argument as: <code>header = TRUE</code>.</p>
+<p>The following functions are generally preferred, because they are stable, platform independent, and the result from these functions will be consistent.</p>
+<table>
+<caption><span id="tab:data-load-types-1">Table 4.3: </span>Best Data Loading Functions</caption>
+<colgroup>
+<col width="12%" />
+<col width="78%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">Usage</th>
+<th align="left">File.Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">read.table()</td>
+<td align="left">For text files</td>
+<td align="left">.txt</td>
+</tr>
+<tr class="even">
+<td align="left">read.csv()</td>
+<td align="left">For comma separated spread sheets</td>
+<td align="left">.csv</td>
+</tr>
+<tr class="odd">
+<td align="left">read.csv2()</td>
+<td align="left">For comma separated spread sheets, but different decimal separators (see ?read.csv2)</td>
+<td align="left">.csv</td>
+</tr>
+<tr class="even">
+<td align="left">load()</td>
+<td align="left">For R data files</td>
+<td align="left">.RData</td>
+</tr>
+</tbody>
+</table>
+<p>To save a data set from R to a data file, you can use the following corresponding functions:</p>
+<table>
+<caption><span id="tab:data-save-types">Table 4.4: </span>Best Data Loading Functions</caption>
+<colgroup>
+<col width="12%" />
+<col width="78%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">Usage</th>
+<th align="left">File.Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">write.table()</td>
+<td align="left">For text files</td>
+<td align="left">.txt</td>
+</tr>
+<tr class="even">
+<td align="left">write.csv()</td>
+<td align="left">For comma separated spread sheets</td>
+<td align="left">.csv</td>
+</tr>
+<tr class="odd">
+<td align="left">write.csv2()</td>
+<td align="left">For comma separated spread sheets, but different decimal separators (see ?write.csv2)</td>
+<td align="left">.csv</td>
+</tr>
+<tr class="even">
+<td align="left">save()</td>
+<td align="left">For R data files</td>
+<td align="left">.RData</td>
+</tr>
+</tbody>
+</table>
+<p>To save/write a file, you first put the name of the data file object you want to save. Then you put the file path to the directory where you want the store the dataset as a character string in the function, as follows:</p>
+<p><code>write.csv(sleep_data, "data/sleep_data.csv")</code></p>
+</div>
+<div id="inspecting-summarizing-data" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Inspecting &amp; Summarizing data<a href="module-2-data.html#inspecting-summarizing-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The first step after loading a dataset into your statistical software should always be to check your data, to see if it looks right.</p>
+<ul>
+<li><p>Are all variables there?</p></li>
+<li><p>Are all rows there?</p></li>
+<li><p>Are there any weird strings?</p></li>
+<li><p>Are there missing values (where I didn’t expect them)?</p></li>
+<li><p>Do my variables have the correct names?</p></li>
+<li><p>…</p></li>
+</ul>
+<div id="summary-functions" class="section level4 hasAnchor" number="4.2.1.1">
+<h4><span class="header-section-number">4.2.1.1</span> Summary Functions<a href="module-2-data.html#summary-functions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>There are several ready-made functions that will help you quickly investigate</p>
+<ul>
+<li><p><code>dim() # the dimensions of the data</code></p></li>
+<li><p><code>nrow() # the number of rows in the data frame / matrix</code></p></li>
+<li><p><code>ncol() # the number of columns in the data frame / matrix</code></p></li>
+</ul>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="module-2-data.html#cb146-1" tabindex="-1"></a><span class="fu">dim</span>(sleep)</span></code></pre></div>
+<pre><code>## [1] 20  3</code></pre>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="module-2-data.html#cb148-1" tabindex="-1"></a><span class="fu">nrow</span>(sleep)</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="module-2-data.html#cb150-1" tabindex="-1"></a><span class="fu">ncol</span>(sleep)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="module-2-data.html#cb152-1" tabindex="-1"></a>sleep</span></code></pre></div>
+<pre><code>##    extra group ID
+## 1    0.7     1  1
+## 2   -1.6     1  2
+## 3   -0.2     1  3
+## 4   -1.2     1  4
+## 5   -0.1     1  5
+## 6    3.4     1  6
+## 7    3.7     1  7
+## 8    0.8     1  8
+## 9    0.0     1  9
+## 10   2.0     1 10
+## 11   1.9     2  1
+## 12   0.8     2  2
+## 13   1.1     2  3
+## 14   0.1     2  4
+## 15  -0.1     2  5
+## 16   4.4     2  6
+## 17   5.5     2  7
+## 18   1.6     2  8
+## 19   4.6     2  9
+## 20   3.4     2 10</code></pre>
+<p>To evaluate vectors, the following functions are useful:</p>
+<p>We have already seen:</p>
+<ul>
+<li><p><code>mean()</code></p></li>
+<li><p><code>median()</code></p></li>
+<li><p><code>sum()</code></p></li>
+<li><p><code>length()</code></p></li>
+</ul>
+<p>To find the highest or lowest value in a vector, the following functions can be used:</p>
+<ul>
+<li><p><code>max()</code></p></li>
+<li><p><code>min()</code></p></li>
+</ul>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="module-2-data.html#cb154-1" tabindex="-1"></a><span class="fu">max</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>To find the location of the highest or lowest value in a vector, the following functions can be used:</p>
+<ul>
+<li><p><code>which.max()</code></p></li>
+<li><p><code>which.min()</code></p></li>
+</ul>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="module-2-data.html#cb156-1" tabindex="-1"></a><span class="fu">which.max</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>The use of other summarizing functions like <code>View()</code>, <code>summary()</code>, <code>str()</code>, <code>head()</code>, will be explored in Exercise 2.2.</p>
+</div>
+<div id="conditional-selection" class="section level4 hasAnchor" number="4.2.1.2">
+<h4><span class="header-section-number">4.2.1.2</span> Conditional Selection<a href="module-2-data.html#conditional-selection" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>So far, when we have indexed datasets or vectors, we have made use of names (e.g.,   <code>llama_age[‘Zaphod’]</code>, or <code>StarWars$height)</code>, or using numeric values to indicate locations (e.g., <code>ages[c(1, 3, 4)]</code>). We can also use vectors of logical (TRUE/FALSE) values for indexing.</p>
+<p>To index with a vector of logical values the vector must be the same length as the object you want to index over.</p>
+<p>Let’s say for example, we wanted to use logical values to index over the <code>sleep</code> dataset, which has 20 rows and 3 columns.</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="module-2-data.html#cb158-1" tabindex="-1"></a><span class="fu">dim</span>(sleep)</span></code></pre></div>
+<pre><code>## [1] 20  3</code></pre>
+<p>To index the second column of this dataset using logical indexing, we would use:</p>
+<p><code>c(FALSE, TRUE, FALSE)</code></p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="module-2-data.html#cb160-1" tabindex="-1"></a>sleep[, <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2
+## Levels: 1 2</code></pre>
+<p>To index over rows would require a vector of length 20. This would take a lot of work to type out. Fortunately, we can construct logical vectors using <u>conditional statements</u> as in the following example:</p>
+<p><code>sleep$extra &gt; 0</code></p>
+<p>This returns <code>TRUE</code> if at that position the value of extra is larger than 0, and <code>FALSE</code> otherwise.</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="module-2-data.html#cb162-1" tabindex="-1"></a>sleep<span class="sc">$</span>extra</span></code></pre></div>
+<pre><code>##  [1]  0.7 -1.6 -0.2 -1.2 -0.1  3.4  3.7  0.8  0.0  2.0  1.9  0.8  1.1  0.1 -0.1  4.4  5.5  1.6  4.6
+## [20]  3.4</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="module-2-data.html#cb164-1" tabindex="-1"></a>sleep<span class="sc">$</span>extra <span class="sc">&gt;</span> <span class="dv">0</span></span></code></pre></div>
+<pre><code>##  [1]  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE
+## [17]  TRUE  TRUE  TRUE  TRUE</code></pre>
+<p>To then index with this logical vector, we do the following:</p>
+<p><code>sleep[sleep$extra &gt; 0, ]</code></p>
+<p>This means: return all rows in sleep, where the value of the variable extra in the sleep dataset is larger than 0.</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="module-2-data.html#cb166-1" tabindex="-1"></a>sleep[sleep<span class="sc">$</span>extra <span class="sc">&gt;</span> <span class="dv">0</span>, ]</span></code></pre></div>
+<pre><code>##    extra group ID
+## 1    0.7     1  1
+## 6    3.4     1  6
+## 7    3.7     1  7
+## 8    0.8     1  8
+## 10   2.0     1 10
+## 11   1.9     2  1
+## 12   0.8     2  2
+## 13   1.1     2  3
+## 14   0.1     2  4
+## 16   4.4     2  6
+## 17   5.5     2  7
+## 18   1.6     2  8
+## 19   4.6     2  9
+## 20   3.4     2 10</code></pre>
+<p>You can construct <u>negative logical expressions</u> by adding the <code>!</code> operator in front of the statement. This will turn all “TRUEs” into “FALSEs” and vice versa:</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="module-2-data.html#cb168-1" tabindex="-1"></a>sleep<span class="sc">$</span>extra <span class="sc">&gt;</span> <span class="dv">0</span></span></code></pre></div>
+<pre><code>##  [1]  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE
+## [17]  TRUE  TRUE  TRUE  TRUE</code></pre>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="module-2-data.html#cb170-1" tabindex="-1"></a><span class="sc">!</span>sleep<span class="sc">$</span>extra <span class="sc">&gt;</span> <span class="dv">0</span></span></code></pre></div>
+<pre><code>##  [1] FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
+## [17] FALSE FALSE FALSE FALSE</code></pre>
+<p>You can combine logical expressions using the OR ( <code>|</code> ), and AND ( <code>&amp;</code> ) operators. For example:</p>
+<p><code>sleep$extra &gt; 0 &amp; sleep$group == 1</code></p>
+<p>will return true for all cases for which the value of <code>extra</code> is larger than 0 and were in <code>group</code> 1.</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="module-2-data.html#cb172-1" tabindex="-1"></a>sleep<span class="sc">$</span>extra <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> sleep<span class="sc">$</span>group <span class="sc">==</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>##  [1]  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+## [17] FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="module-2-data.html#cb174-1" tabindex="-1"></a>sleep[sleep<span class="sc">$</span>extra <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> sleep<span class="sc">$</span>group <span class="sc">==</span> <span class="dv">1</span>, ]</span></code></pre></div>
+<pre><code>##    extra group ID
+## 1    0.7     1  1
+## 6    3.4     1  6
+## 7    3.7     1  7
+## 8    0.8     1  8
+## 10   2.0     1 10</code></pre>
+<p>Testing for <u>missing values</u>works differently. In R missing values are commonly indicated by the special character <code>NA</code>. Because this is a special character certain standard operations will not work as expected. For instance:</p>
+<p><code>sleep$extra == NA</code></p>
+<p>returns</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="module-2-data.html#cb176-1" tabindex="-1"></a>sleep<span class="sc">$</span>extra <span class="sc">==</span> <span class="cn">NA</span></span></code></pre></div>
+<pre><code>##  [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA</code></pre>
+<p>To test for missing values, we instead make use of the <code>is.na()</code> function.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="module-2-data.html#cb178-1" tabindex="-1"></a><span class="fu">is.na</span>(sleep<span class="sc">$</span>extra)</span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [17] FALSE FALSE FALSE FALSE</code></pre>
+<p>Or for data with NAs:</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="module-2-data.html#cb180-1" tabindex="-1"></a>airquality<span class="sc">$</span>Ozone</span></code></pre></div>
+<pre><code>##   [1]  41  36  12  18  NA  28  23  19   8  NA   7  16  11  14  18  14  34   6  30  11   1  11   4  32
+##  [25]  NA  NA  NA  23  45 115  37  NA  NA  NA  NA  NA  NA  29  NA  71  39  NA  NA  23  NA  NA  21  37
+##  [49]  20  12  13  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 135  49  32  NA  64  40  77  97  97  85  NA
+##  [73]  10  27  NA   7  48  35  61  79  63  16  NA  NA  80 108  20  52  82  50  64  59  39   9  16  78
+##  [97]  35  66 122  89 110  NA  NA  44  28  65  NA  22  59  23  31  44  21   9  NA  45 168  73  NA  76
+## [121] 118  84  85  96  78  73  91  47  32  20  23  21  24  44  21  28   9  13  46  18  13  24  16  13
+## [145]  23  36   7  14  30  NA  14  18  20</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="module-2-data.html#cb182-1" tabindex="-1"></a><span class="fu">is.na</span>(airquality<span class="sc">$</span>Ozone)</span></code></pre></div>
+<pre><code>##   [1] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [17] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE
+##  [33]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE
+##  [49] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE
+##  [65]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+##  [81] FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [97] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+## [113] FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [129] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [145] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="module-2-data.html#cb184-1" tabindex="-1"></a>airquality<span class="sc">$</span>Ozone[<span class="sc">!</span><span class="fu">is.na</span>(airquality<span class="sc">$</span>Ozone)]</span></code></pre></div>
+<pre><code>##   [1]  41  36  12  18  28  23  19   8   7  16  11  14  18  14  34   6  30  11   1  11   4  32  23  45
+##  [25] 115  37  29  71  39  23  21  37  20  12  13 135  49  32  64  40  77  97  97  85  10  27   7  48
+##  [49]  35  61  79  63  16  80 108  20  52  82  50  64  59  39   9  16  78  35  66 122  89 110  44  28
+##  [73]  65  22  59  23  31  44  21   9  45 168  73  76 118  84  85  96  78  73  91  47  32  20  23  21
+##  [97]  24  44  21  28   9  13  46  18  13  24  16  13  23  36   7  14  30  14  18  20</code></pre>
+<p>Finally, here is a list of the common types of conditional selection operators you will be using:</p>
+<ul>
+<li><p><code>&gt;</code>            (“greater than”)</p></li>
+<li><p><code>&lt;</code>            (“smaller than”)</p></li>
+<li><p><code>&gt;=</code>          (“greater than or equal to”)</p></li>
+<li><p><code>&lt;=</code>          (“smaller than or equal to”)</p></li>
+<li><p><code>==</code>          (“equal to”)</p></li>
+<li><p><code>!=</code>          (“not equal to”)</p></li>
+<li><p><code>is.na()</code> (“is missing”)</p></li>
+<li><p><code>&amp;</code>           (“AND”)</p></li>
+<li><p><code>|</code>           (“OR”)</p></li>
+</ul>
+<p>START EXCERCISE 2.2</p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-Data.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

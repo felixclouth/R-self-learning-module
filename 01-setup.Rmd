@@ -1,0 +1,39 @@
+# Module 1: Setup
+
+## What is R?
+
+R is a programming language and computational environment that is mainly used as ready-to-use software for statistical data analysis, both simple and advanced. Reasons for using R include:
+
+1.  It is free. R and all its packages (software that extends R’s functionality to enable complex analyses and extended functionality) are absolutely free.
+
+2.  It’s open. Science can only progress if there is complete openness about method. In SPSS and other commercial packages, it is not possible to find out exactly what the program is doing. Companies keep this a secret. All R's methods are on public display.
+
+3.  R is versatile. Statisticians who develop methods used by social scientists usually implement them in R as packages. Through packages, R’s functionality extends far beyond many other software packages.
+
+4.  R is widely used. This means that colleagues in both Academia and Industry will be easier to collaborate with if you understand R. It also mean that there are many resources available to consult to help you use R.
+
+5.  R is easy\*. While R may initially seem difficult – and there is a steep initial learning curve – once you have completed these modules you will have passed most of this learning curve and learning more advanced topics in R will come relatively easily. Furthermore, compared to other programming languages like java and C++, R reads a lot more like English and will be easy to understand. Throughout these modules, you will make use of R in combination with Rstudio. While R is the programming language that does all the work of running the computations, Rstudio provides you with an easy-to-use interface that makes working in R more comfortable and easier to understand.
+
+## Installing R
+
+To install R for free, go to the following home website: <https://cran.r-project.org/>. Then:
+
+- Under Download and Install R click on the hyperlink that corresponds to your operating system:
+
+  - For Windows click on [Download R for Windows]{.underline}, and then click on [base]{.underline} and then click on the hyperlink at the top of the page (e.g., Download R-4.5.3 for Windows).
+
+  - For Mac click on Download R for macOS, and then click on the top link (e.g., R-4.5.3-arm64.pkg).
+
+- After downloading the R file, click to install it. Choose default answers for all the questions in the installer.
+
+## Installing RStudio
+
+To install RStudio for free, go to the following home website: <https://posit.co/download/rstudio-desktop>. Then:
+
+- If you are on Windows click on the Download Rstudio Desktop for Windows button.
+
+- If you are on Mac, scroll down and click on the download link next to the macOS 14/15/16 (e.g. RStudio-2026.04.0-526.dmg).
+
+- After downloading the RStudio file, click to install it. Choose default answers for all the questions in the installer.
+
+Now that you have successfully installed R and RStudio, open RStudio (we will only access R through Rstudio for the remainder of these modules).

@@ -1,0 +1,12 @@
+`r if (knitr::is_html_output()) '
+# References and Additional Resources {-}
+'`
+
+To install R for free, go to the following home website: <https://cran.r-project.org/>.
+
+To install RStudio for free, go to the following home website: <https://posit.co/download/rstudio-desktop>.
+
+R base cheat sheet: <https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf>.
+
+Book 'Hands-On Programming with R': <https://rstudio-education.github.io/hopr/>.
+

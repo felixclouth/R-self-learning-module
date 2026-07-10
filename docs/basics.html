@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 The Basics | Research Master R Programming Handout</title>
+  <meta name="description" content="R self-learning module for IDA and SBS research masters." />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 The Basics | Research Master R Programming Handout" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="R self-learning module for IDA and SBS research masters." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 The Basics | Research Master R Programming Handout" />
+  
+  <meta name="twitter:description" content="R self-learning module for IDA and SBS research masters." />
+  
+
+<meta name="author" content="Cas Goos - Department of Methodology &amp; Statistics - Tilburg University" />
+<meta name="author" content="Felix Clouth - Department of Methodology &amp; Statistics - Tilburg University" />
+
+
+<meta name="date" content="2026-07-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="module-1-setup.html"/>
+<link rel="next" href="data.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ReMa R Programmign Handout</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
+<li class="chapter" data-level="2" data-path="module-1-setup.html"><a href="module-1-setup.html"><i class="fa fa-check"></i><b>2</b> Module 1: Setup</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="module-1-setup.html"><a href="module-1-setup.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="module-1-setup.html"><a href="module-1-setup.html#installing-r"><i class="fa fa-check"></i><b>2.2</b> Installing R</a></li>
+<li class="chapter" data-level="2.3" data-path="module-1-setup.html"><a href="module-1-setup.html#installing-rstudio"><i class="fa fa-check"></i><b>2.3</b> Installing RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>3</b> The Basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basics.html"><a href="basics.html#navigating-rstudio"><i class="fa fa-check"></i><b>3.1</b> Navigating RStudio</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="basics.html"><a href="basics.html#console-window"><i class="fa fa-check"></i><b>3.1.1</b> Console Window</a></li>
+<li class="chapter" data-level="3.1.2" data-path="basics.html"><a href="basics.html#editor-window"><i class="fa fa-check"></i><b>3.1.2</b> Editor Window</a></li>
+<li class="chapter" data-level="3.1.3" data-path="basics.html"><a href="basics.html#workspace-window"><i class="fa fa-check"></i><b>3.1.3</b> Workspace Window</a></li>
+<li class="chapter" data-level="3.1.4" data-path="basics.html"><a href="basics.html#other-window"><i class="fa fa-check"></i><b>3.1.4</b> “Other” Window</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="basics.html"><a href="basics.html#data-as-objects"><i class="fa fa-check"></i><b>3.2</b> Data as Objects</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="basics.html"><a href="basics.html#vectors"><i class="fa fa-check"></i><b>3.2.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.2.2" data-path="basics.html"><a href="basics.html#variables"><i class="fa fa-check"></i><b>3.2.2</b> Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="basics.html"><a href="basics.html#functions"><i class="fa fa-check"></i><b>3.3</b> Functions</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="basics.html"><a href="basics.html#finding-help"><i class="fa fa-check"></i><b>3.3.1</b> Finding Help</a></li>
+<li class="chapter" data-level="3.3.2" data-path="basics.html"><a href="basics.html#indexing"><i class="fa fa-check"></i><b>3.3.2</b> Indexing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>4</b> Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data.html"><a href="data.html#types-of-data"><i class="fa fa-check"></i><b>4.1</b> Types of Data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data.html"><a href="data.html#scalars-vectors-matrices"><i class="fa fa-check"></i><b>4.1.1</b> Scalars, Vectors, &amp; Matrices</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data.html"><a href="data.html#lists-data-frames"><i class="fa fa-check"></i><b>4.1.2</b> Lists &amp; Data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data.html"><a href="data.html#reading-writing-data"><i class="fa fa-check"></i><b>4.2</b> Reading &amp; Writing Data</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data.html"><a href="data.html#inspecting-summarizing-data"><i class="fa fa-check"></i><b>4.2.1</b> Inspecting &amp; Summarizing data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="cleaning-summarizing-data.html"><a href="cleaning-summarizing-data.html"><i class="fa fa-check"></i><b>5</b> Cleaning &amp; Summarizing Data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="cleaning-summarizing-data.html"><a href="cleaning-summarizing-data.html#recoding"><i class="fa fa-check"></i><b>5.1</b> Recoding</a></li>
+<li class="chapter" data-level="5.2" data-path="cleaning-summarizing-data.html"><a href="cleaning-summarizing-data.html#recoding-with-nested-indexing"><i class="fa fa-check"></i><b>5.2</b> Recoding with Nested Indexing</a></li>
+<li class="chapter" data-level="5.3" data-path="cleaning-summarizing-data.html"><a href="cleaning-summarizing-data.html#functions-in-functions"><i class="fa fa-check"></i><b>5.3</b> Functions in Functions</a></li>
+<li class="chapter" data-level="5.4" data-path="cleaning-summarizing-data.html"><a href="cleaning-summarizing-data.html#doing-something-to-every-rowcolumn"><i class="fa fa-check"></i><b>5.4</b> Doing Something to every row/column</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>6</b> Statistical Analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#formula-notation"><i class="fa fa-check"></i><b>6.1</b> Formula Notation</a></li>
+<li class="chapter" data-level="6.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#basic-statistical-tests"><i class="fa fa-check"></i><b>6.2</b> Basic Statistical Tests</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#linear-regression"><i class="fa fa-check"></i><b>6.2.1</b> Linear Regression</a></li>
+<li class="chapter" data-level="6.2.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#t-tests"><i class="fa fa-check"></i><b>6.2.2</b> T-tests</a></li>
+<li class="chapter" data-level="6.2.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#anova"><i class="fa fa-check"></i><b>6.2.3</b> ANOVA</a></li>
+<li class="chapter" data-level="6.2.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#correlations"><i class="fa fa-check"></i><b>6.2.4</b> Correlations</a></li>
+<li class="chapter" data-level="6.2.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>6.2.5</b> Logistic Regression</a></li>
+<li class="chapter" data-level="6.2.6" data-path="statistical-analysis.html"><a href="statistical-analysis.html#model-comparison"><i class="fa fa-check"></i><b>6.2.6</b> Model Comparison</a></li>
+<li class="chapter" data-level="6.2.7" data-path="statistical-analysis.html"><a href="statistical-analysis.html#advanced-statistics"><i class="fa fa-check"></i><b>6.2.7</b> Advanced Statistics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-and-additional-resources.html"><a href="references-and-additional-resources.html"><i class="fa fa-check"></i>References and Additional Resources</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Research Master R Programming Handout</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basics" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> The Basics<a href="basics.html#basics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Download link for Exercise 1: <a href="./exercises/exercise1.docx">exercise 1</a></p>
+<p>Download link for Answers to Exercise 1: <a href="./exercises/exercise1_solutions.R">solutions exercise 1</a></p>
+<div id="navigating-rstudio" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Navigating RStudio<a href="basics.html#navigating-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>RStudio is laid out into 4 different panes. The default panes are as shown below:</p>
+<p><img src="images/RStudioLayout.png" /><!-- --></p>
+<div id="console-window" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Console Window<a href="basics.html#console-window" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>This window is where your code will be run by R, and also where the result of the code will be printed.</p></li>
+<li><p>You can try it out by typing <code>5</code> into the R console after the “&gt;” prompt, and then hitting enter. Then type <code>2 + 3</code>. What do you see?</p></li>
+</ul>
+<p>In both cases R returns the <code>5</code> as a response from the input.</p>
+<p><img src="images/ConsoleLayout.png" /><!-- --></p>
+</div>
+<div id="editor-window" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Editor Window<a href="basics.html#editor-window" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>This window is where you can create R scripts wherein you can write down your code to store so you can rerun it multiple times and store it for later reuse.</p></li>
+<li><p>To open an R script, navigate to the following:</p></li>
+</ul>
+<p><img src="images/OpenNewRScript.png" /><!-- --></p>
+<ul>
+<li>In your newly opened R script, type in <code>5</code> on line 1, then click enter to create a new line and type <code>2 + 3</code>. To run these lines of codes, select them or hold your cursor on that line and either press CTRL+ENTER, or click on the Run button. What do you see?</li>
+</ul>
+<p><img src="images/ScriptToConsoleOutputExample.png" /><!-- --></p>
+<p>The commands are run through the console, and the output is presented the same way as before.</p>
+<ul>
+<li>To store this file either press CTRL+S, or navigate to File &gt; Save, and give the script a name. You can reopen this file and your previously written code will be available for you to rerun.</li>
+</ul>
+</div>
+<div id="workspace-window" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Workspace Window<a href="basics.html#workspace-window" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>This window contains your Environment which shows all the Objects (more on these later) you currently have stored in your R workspace. This window shows you what information you currently have stored.</p></li>
+<li><p>In your <a href="basics.html#editor-window">Editor Window</a> type <code>x &lt;- 2 + 3</code> and run it. What do you see in your Workspace window?</p></li>
+</ul>
+<p>You can see that the Object <code>x</code> is now stored in your workspace and has the value of <code>5</code> assigned to it.</p>
+<p><img src="images/Editor1Example.png" /><!-- --></p>
+<ul>
+<li>Now type x into your <a href="basics.html#editor-window">Editor Window</a>and run it, what output do you see in the console window?</li>
+</ul>
+<p>The console returns <code>5</code>, the value of <code>x</code>.</p>
+</div>
+<div id="other-window" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> “Other” Window<a href="basics.html#other-window" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This window contains several different panes each with their own function, we will encounter some of these panes as we go through these modules and some others you will likely never use for the rest of your life.</p>
+<p><strong>START EXERSISE 1.1</strong></p>
+</div>
+</div>
+<div id="data-as-objects" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Data as Objects<a href="basics.html#data-as-objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In R, we spend most of our time working with objects. Objects can be almost anything, from numbers like the <code>5</code> you worked with earlier, to whole datasets, graphic figures, and even code itself can be stored and passed around as an object. To create your own object you make use of <code>&lt;-</code> as you did previously:</p>
+<p><img src="images/ObjectAssignment.png" /><!-- --></p>
+<p><u>As a quick note</u>: we advise you to code along with these examples so you understand how to implement them in RStudio.</p>
+<p>One major type of object you will frequently encounter (and in fact you just created one) is Data. Data is a broad category comprising anything from a single number to a multi-dimensional array, but for now let’s focus on vectors.</p>
+<div id="vectors" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Vectors<a href="basics.html#vectors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A vector is <em>one or more of the same type of things, one after the other</em></p>
+<p>The function <code>c()</code> can create vectors:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="basics.html#cb1-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="basics.html#cb3-1" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;Hagrid&quot;</span>, <span class="st">&quot;Harry&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Hagrid&quot; &quot;Harry&quot;</code></pre>
+<p>Notice I make vectors of numbers or sentences but not both at the same time - hence “the same <u>type</u> of thing”. Below are examples of different “single” objects that can occur together in a vector.</p>
+<table>
+<caption><span id="tab:data-types">Table 3.1: </span>Fundamental R Data Types</caption>
+<colgroup>
+<col width="21%" />
+<col width="20%" />
+<col width="57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Example</th>
+<th align="left">Type</th>
+<th align="left">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">42</td>
+<td align="left">Integer (numeric)</td>
+<td align="left">A number contains no decimals</td>
+</tr>
+<tr class="even">
+<td align="left">2.1543</td>
+<td align="left">Double (numeric)</td>
+<td align="left">A number that <strong>may</strong> contain decimals</td>
+</tr>
+<tr class="odd">
+<td align="left">“Felix”; “Tilburg”</td>
+<td align="left">Character</td>
+<td align="left">A string of textual characters</td>
+</tr>
+<tr class="even">
+<td align="left">TRUE; FALSE</td>
+<td align="left">Logical</td>
+<td align="left">Special characters indicating either TRUE or FALSE</td>
+</tr>
+</tbody>
+</table>
+<p>Note that you cannot create a vector from different types of objects. Thus in the following case:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="basics.html#cb5-1" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;Hagrid&quot;</span>, <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Hagrid&quot; &quot;1&quot;</code></pre>
+<p>R automatically turns the <code>1</code> numeric type variable into a <code>"1"</code> character type variable to turn the vector into a character vector.</p>
+<p>You may hear some people call R a “vectorized language”. What they are referring to is that when you perform an operation on a vector in R it will often perform that operation on each element of the vector.</p>
+<p>For example, suppose there are 14 students in a class, of the following ages:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="basics.html#cb7-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">23</span>)</span></code></pre></div>
+<pre><code>##  [1] 22 22 21 25 23 19 23 25 19 21 20 23</code></pre>
+<p>Then I can get their squared ages by:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="basics.html#cb9-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">23</span>)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>##  [1] 484 484 441 625 529 361 529 625 361 441 400 529</code></pre>
+<p>Or the sum of the ages as:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="basics.html#cb11-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">23</span>))</span></code></pre></div>
+<pre><code>## [1] 263</code></pre>
+<p>Typing out a vector each time you want to do something with it is way too much work and looks messy. Just like any other object in R, you can store a vector of values for later use by assigning it to a <u>variable</u>. This works the same way as assigning a single value:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="basics.html#cb13-1" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">23</span>)</span>
+<span id="cb13-2"><a href="basics.html#cb13-2" tabindex="-1"></a>ages</span></code></pre></div>
+<pre><code>##  [1] 22 22 21 25 23 19 23 25 19 21 20 23</code></pre>
+</div>
+<div id="variables" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Variables<a href="basics.html#variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A variable is a placeholder name that refers to some object, such as a vector. They function like the numbers they have on clothing racks in some places:</p>
+<ul>
+<li><p>The coat is the value and the number on the hanger is the name of the variable</p></li>
+<li><p>So, <code>c(22, 22, 21, 25, 23, 19, 23, 25, 19, 21, 20, 23)</code> is the coat, and <code>ages</code> is the “hanger”.</p></li>
+</ul>
+<p>Putting the coat on a hanger is called “assigning” a value to a variable.  As mentioned before assigning value into variables is done with <code>&lt;-</code>.</p>
+<p>A variable can be named anything as long as it does <u>not</u> start with a number, does not contain operators, contains at least one regular letter character, and is preferably not already in use by R.</p>
+<table>
+<caption><span id="tab:object-errors">Table 3.2: </span>Object Naming Rules</caption>
+<colgroup>
+<col width="30%" />
+<col width="69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Acceptable</th>
+<th align="left">Not.Acceptable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">my_var_3</td>
+<td align="left">3_my_var (starts with a number)</td>
+</tr>
+<tr class="even">
+<td align="left">x_ (fine albeit ugly)</td>
+<td align="left">x^ (contains an operator character)</td>
+</tr>
+<tr class="odd">
+<td align="left">hamburgers_with_cheese (you can go as crazy as you want with your names)</td>
+<td align="left">__ (no letter character)</td>
+</tr>
+<tr class="even">
+<td align="left">x</td>
+<td align="left">pi (already in use by R; meaning that if you use it, it will overwrite the pi constant in R, and to use the pi constant again you would need to reset your R workspace)</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="basics.html#cb15-1" tabindex="-1"></a>pi</span></code></pre></div>
+<pre><code>## [1] 3.141593</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="basics.html#cb17-1" tabindex="-1"></a>pi <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb17-2"><a href="basics.html#cb17-2" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="basics.html#cb17-3" tabindex="-1"></a>pi</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>To reset a workspace -for example in case of the assign to pi issue described above – you can make use of the following line of code:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="basics.html#cb19-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div>
+<ul>
+<li><p>With ls() you can see your objects</p></li>
+<li><p>With rm() you can remove them</p></li>
+</ul>
+<p>Once you have assigned a value to your variable, you can now reuse that variable to perform all sorts of calculations.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="basics.html#cb20-1" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">23</span>)</span>
+<span id="cb20-2"><a href="basics.html#cb20-2" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="basics.html#cb20-3" tabindex="-1"></a>ages<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>##  [1] 484 484 441 625 529 361 529 625 361 441 400 529</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="basics.html#cb22-1" tabindex="-1"></a><span class="fu">sum</span>(ages)</span></code></pre></div>
+<pre><code>## [1] 263</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="basics.html#cb24-1" tabindex="-1"></a><span class="dv">220</span> <span class="sc">-</span> ages</span></code></pre></div>
+<pre><code>##  [1] 198 198 199 195 197 201 197 195 201 199 200 197</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="basics.html#cb26-1" tabindex="-1"></a>predicted_maximum_heart_rate <span class="ot">&lt;-</span> <span class="dv">220</span> <span class="sc">-</span> ages</span>
+<span id="cb26-2"><a href="basics.html#cb26-2" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="basics.html#cb26-3" tabindex="-1"></a>predicted_maximum_heart_rate</span></code></pre></div>
+<pre><code>##  [1] 198 198 199 195 197 201 197 195 201 199 200 197</code></pre>
+<p><u>Note:</u> variable names are case sensitive!</p>
+<p><code>ages</code> is not the same as <code>Ages</code> or <code>AGES</code> or <code>ageS</code>!</p>
+<p>If you misspell the variable name, R will respond with an error explaining what went wrong:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="basics.html#cb28-1" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">23</span>)</span>
+<span id="cb28-2"><a href="basics.html#cb28-2" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="basics.html#cb28-3" tabindex="-1"></a>Ages</span></code></pre></div>
+<pre><code>## Error:
+## ! object &#39;Ages&#39; not found</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="basics.html#cb30-1" tabindex="-1"></a>AGES</span></code></pre></div>
+<pre><code>## Error:
+## ! object &#39;AGES&#39; not found</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="basics.html#cb32-1" tabindex="-1"></a>ageS</span></code></pre></div>
+<pre><code>## Error:
+## ! object &#39;ageS&#39; not found</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="basics.html#cb34-1" tabindex="-1"></a>ages</span></code></pre></div>
+<pre><code>##  [1] 22 22 21 25 23 19 23 25 19 21 20 23</code></pre>
+<p><strong>START EXERSISE 1.2</strong></p>
+</div>
+</div>
+<div id="functions" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Functions<a href="basics.html#functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Besides Variables, another common object in R are <u>Functions</u>. Functions in R take the following form:</p>
+<p><code>f()</code></p>
+<p>You have already used several functions <code>c(1, 2, 3)</code>; <code>sum(ages)</code>; <code>rm()</code>; <code>ls()</code>.</p>
+<p>Another example of a function you have used already are operators such as <code>+</code> and <code>^</code>. You have used these operators as <code>3 + 2</code>. This is shorthand for <code>'+'(3, 2)</code>.</p>
+<p>Almost always in R, functions also take some form of input, and have the following property:</p>
+<p><img src="images/FunctionLogicText.png" /><!-- --></p>
+<p>An example of this principle is the following:</p>
+<pre><code>## [1] 263</code></pre>
+<p><img src="images/FunctionExample1.png" /><!-- --></p>
+<p><code>sum</code> is a function that <u>takes</u> a vector (input) and <u>returns</u> the sum of that vector (output).</p>
+<p>Another example is the following:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="basics.html#cb37-1" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##  [1]  0.6794152 -0.2123021  0.5313434  0.9094616 -0.6324767  1.3998262
+##  [7]  2.2372542  0.2277100  0.4699898  0.1650630</code></pre>
+<p><img src="images/FunctionExample2.png" /><!-- --></p>
+<p><code>rnorm</code> is a function that <u>takes</u> an integer (input) and <u>returns</u> that number of random observations from a standard normal distribution (output).</p>
+<p>The input of a function is called its <u>arguments</u>. Looking at our previous examples:</p>
+<ul>
+<li><p><code>ages</code> is the argument in <code>sum(ages)</code></p></li>
+<li><p><code>10</code> is the argument in <code>rnorm(10)</code></p></li>
+</ul>
+<p>Functions can have multiple arguments:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="basics.html#cb39-1" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean  =</span> <span class="dv">4</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##  [1] 6.237180 4.062689 4.383174 6.735274 5.264472 5.239857 2.027623 3.040745
+##  [9] 2.073653 5.801092</code></pre>
+<p>Arguments can be specified either by name, or position:</p>
+<ul>
+<li><code>rnorm(10, mean = 4, sd = 2)</code> does the same as <code>rnorm(10, 4, 2).</code></li>
+</ul>
+<p>While specifying by position is faster to write and can sometimes remain easy to read (note how we did not name the first argument in the <code>rnorm()</code> function above, for example), for clarity it is often smart to specify all arguments but the first by name.</p>
+<p>You can figure out which arguments you can specify and under which names by consulting the help files by adding <code>?</code> in front of the function name:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="basics.html#cb41-1" tabindex="-1"></a>?rnorm</span></code></pre></div>
+<pre><code>## starting httpd help server ... done</code></pre>
+<p><img src="images/HelpFiles.png" /><!-- --></p>
+<p>This opens the help files, which shows a description of the function, a description of its arguments, as well as <u>default</u> values for those arguments. Default values represent the values that the function will use for arguments when they are not specified.</p>
+<p><img src="images/HelpFiles2.png" /><!-- --></p>
+<p>We can see that for <code>rnorm</code>, the mean and standard deviation of the normal distribution from which <code>n</code> observations are drawn is <code>0</code> and <code>1</code> respectively. This means that if we don’t specify <code>mean</code> and <code>sd</code>, and run <code>rnorm(10)</code>, we will draw 10 observations from a normal distribution with a mean of 0 and a standard deviation of 1.</p>
+<p>We can also see that <code>n</code> does not have a default argument, which means that when we do not specify it, R gives us the following error:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="basics.html#cb43-1" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="at">mean =</span> <span class="dv">4</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## Error in `rnorm()`:
+## ! argument &quot;n&quot; is missing, with no default</code></pre>
+<p>Some arguments <u>have to</u> be specified for a function to run. How do you know which arguments need to be specified? Look at the help files (or online).</p>
+<p>Another common reason for errors is the result of inserting the wrong data type (integer, float, character, logical, etc.) into an argument. The <code>sum()</code> function in the following example requires a numeric vector as input, but we gave it the character vector <code>sum(c("Happy Meal", "Roger Rabbit")</code>) instead:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="basics.html#cb45-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="st">&quot;Happy Meal&quot;</span>, <span class="st">&quot;Roger Rabbit&quot;</span>))</span></code></pre></div>
+<pre><code>## Error in `sum()`:
+## ! invalid &#39;type&#39; (character) of argument</code></pre>
+<p>The error message shows that an invalid type of argument was used. Logically this makes sense too, you cannot calculate a numeric sum from <code>"Happy Meal"</code> &amp; <code>"Roger Rabbit"</code>. Again, look at the help files (or online) to learn what type of arguments are valid input.</p>
+<p>Some more example functions:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="basics.html#cb47-1" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">23</span>)</span>
+<span id="cb47-2"><a href="basics.html#cb47-2" tabindex="-1"></a><span class="fu">length</span>(ages)</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p><code>length()</code> prints out the number of elements within a vector.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="basics.html#cb49-1" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">23</span>)</span>
+<span id="cb49-2"><a href="basics.html#cb49-2" tabindex="-1"></a><span class="fu">table</span>(ages)</span></code></pre></div>
+<pre><code>## ages
+## 19 20 21 22 23 25 
+##  2  1  2  2  3  2</code></pre>
+<p><code>table()</code> provides a descriptive overview of each unique value in a vector with a count showing how often the value occurred in the vector.</p>
+<div id="finding-help" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Finding Help<a href="basics.html#finding-help" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When using R, half your time will be spent searching help.</p>
+<div id="help-files-in-r" class="section level4 hasAnchor" number="3.3.1.1">
+<h4><span class="header-section-number">3.3.1.1</span> Help Files in R<a href="basics.html#help-files-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We already showed you how you can use the <code>?</code> operator to open the help files for a function. It also works for built-in datasets in R:</p>
+<p><img src="images/IrisHelp.png" /><!-- --></p>
+<p>You can also get help using the following functions:</p>
+<ul>
+<li><p><code>help("sum")</code> or <code>help(sum)</code></p></li>
+<li><p><code>apropos("sum ")</code> or <code>apropos(sum)</code> &lt;- finds all functions with “sum” in the name.</p></li>
+<li><p><code>help.start()</code> to open the manual browser</p></li>
+</ul>
+</div>
+<div id="internet" class="section level4 hasAnchor" number="3.3.1.2">
+<h4><span class="header-section-number">3.3.1.2</span> Internet<a href="basics.html#internet" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You can make use of information available on the internet with the following resources:</p>
+<ul>
+<li><p>Google (or any other search engine)</p></li>
+<li><p>Stackoverflow (a website where a community of programmers help* answer each others question; *the tone isn’t always the most helpful, but the information usually is)</p></li>
+<li><p>Cheat sheets, and other materials like these modules.</p>
+<ul>
+<li><p>Basic: <a href="https://cran.r-project.org/doc/contrib/Short-refcard.pdf" class="uri">https://cran.r-project.org/doc/contrib/Short-refcard.pdf</a></p></li>
+<li><p>For an overview, check <a href="https://paulvanderlaken.com/2017/08/10/r-resources-cheatsheets-tutorials-books/" class="uri">https://paulvanderlaken.com/2017/08/10/r-resources-cheatsheets-tutorials-books/</a></p></li>
+</ul></li>
+</ul>
+</div>
+<div id="warnings-errors" class="section level4 hasAnchor" number="3.3.1.3">
+<h4><span class="header-section-number">3.3.1.3</span> Warnings &amp; Errors<a href="basics.html#warnings-errors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>An <u>error</u> means that your code does not run, because it is wrongly specified. For example:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="basics.html#cb51-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="st">&quot;Happy Meal&quot;</span>, <span class="st">&quot;Roger Rabbit&quot;</span>))</span></code></pre></div>
+<pre><code>## Error in `sum()`:
+## ! invalid &#39;type&#39; (character) of argument</code></pre>
+<p>A <u>warning</u> means that your code will run, but probably didn’t result in the behaviour you expected. For example:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="basics.html#cb53-1" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>,  <span class="st">&quot;three&quot;</span>, <span class="dv">4</span>))</span></code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1]  1  2 NA  4</code></pre>
+<p>In either case, do not ignore warning messages and errors. Even if everything is fine for now, you will likely run into issues later, unless you really know what you are doing.</p>
+<p>To resolve an error/warning first carefully read it.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="basics.html#cb56-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="st">&quot;Happy Meal&quot;</span>, <span class="st">&quot;Roger Rabbit&quot;</span>))</span></code></pre></div>
+<pre><code>## Error in `sum()`:
+## ! invalid &#39;type&#39; (character) of argument</code></pre>
+<p>To understand better where the origin of our error lies, we can separate our code into pieces:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="basics.html#cb58-1" tabindex="-1"></a>vec_x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Happy Meal&quot;</span>, <span class="st">&quot;Roger Rabbit&quot;</span>)</span>
+<span id="cb58-2"><a href="basics.html#cb58-2" tabindex="-1"></a><span class="fu">sum</span>(vec_x)</span></code></pre></div>
+<pre><code>## Error in `sum()`:
+## ! invalid &#39;type&#39; (character) of argument</code></pre>
+<p>The fault is in the second line. The error message tells you what is wrong. You cannot use the <code>sum()</code> function on a character vector.</p>
+<p>If the error or warning message is too complex to decipher yourself, a good second step is to type the error or warning message into Google, and then look for solutions others have proposed (Stackoverflow is again a particularly helpful resource here).</p>
+<p><strong>START EXERCISE 1.3</strong></p>
+</div>
+</div>
+<div id="indexing" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Indexing<a href="basics.html#indexing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><u>Indexing</u> in R refers to selecting a subset of elements from an object. Returning to our <code>ages</code> example:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="basics.html#cb60-1" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">23</span>)</span></code></pre></div>
+<p>What if we only wanted the 4<sup>th</sup> student’s age?</p>
+<p>In that case, you can use the following code:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="basics.html#cb61-1" tabindex="-1"></a>ages[<span class="dv">4</span>]</span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<div id="indexing-multiple-elements" class="section level4 hasAnchor" number="3.3.2.1">
+<h4><span class="header-section-number">3.3.2.1</span> Indexing multiple elements<a href="basics.html#indexing-multiple-elements" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You index an element from a vector in R by placing the location of the element you want to index between square brackets <code>[``…``]</code> after the vector.</p>
+<p>The <code>[…]</code> can also take vectors, in case you want more than one element from the vector:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="basics.html#cb63-1" tabindex="-1"></a>ages[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>)]</span></code></pre></div>
+<pre><code>## [1] 22 21 25</code></pre>
+<p>In case you want the second through fifth elements of a vector:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="basics.html#cb65-1" tabindex="-1"></a>ages[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)]</span></code></pre></div>
+<pre><code>## [1] 22 21 25 23</code></pre>
+<p>It can be easy to use the <code>:</code> operator.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="basics.html#cb67-1" tabindex="-1"></a>ages[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] 22 21 25 23</code></pre>
+<p>The <code>:</code> operator creates a vector running from the integer at the left side of the <code>:</code> , to the integer at the right side, in steps of 1:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="basics.html#cb69-1" tabindex="-1"></a><span class="dv">2</span><span class="sc">:</span><span class="dv">5</span></span></code></pre></div>
+<pre><code>## [1] 2 3 4 5</code></pre>
+</div>
+<div id="negative-indexing" class="section level4 hasAnchor" number="3.3.2.2">
+<h4><span class="header-section-number">3.3.2.2</span> Negative Indexing<a href="basics.html#negative-indexing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You can also index elements by telling R which element(s) you do <u>not</u> want. This is done by putting the <code>-</code> sign in front of a single value or a vector of values.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="basics.html#cb71-1" tabindex="-1"></a>ages[<span class="sc">-</span><span class="dv">4</span>]</span></code></pre></div>
+<pre><code>##  [1] 22 22 21 23 19 23 25 19 21 20 23</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="basics.html#cb73-1" tabindex="-1"></a>ages[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>)]</span></code></pre></div>
+<pre><code>## [1] 22 25 19 25 21 23</code></pre>
+</div>
+<div id="named-vectors-indexing-by-name" class="section level4 hasAnchor" number="3.3.2.3">
+<h4><span class="header-section-number">3.3.2.3</span> Named vectors &amp; indexing by name<a href="basics.html#named-vectors-indexing-by-name" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You can give names to elements in a vector:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="basics.html#cb75-1" tabindex="-1"></a>llama_age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Arthur&quot;</span> <span class="ot">=</span> <span class="dv">14</span>, <span class="st">&quot;Zaphod&quot;</span> <span class="ot">=</span> <span class="dv">9</span>)</span>
+<span id="cb75-2"><a href="basics.html#cb75-2" tabindex="-1"></a>llama_age</span></code></pre></div>
+<pre><code>## Arthur Zaphod 
+##     14      9</code></pre>
+<p>Now the vector <code>llama.age</code> has names. You can check this by doing:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="basics.html#cb77-1" tabindex="-1"></a><span class="fu">names</span>(llama_age)</span></code></pre></div>
+<pre><code>## [1] &quot;Arthur&quot; &quot;Zaphod&quot;</code></pre>
+<p>This allows you to index elements within that vector by adding their name in between the square brackets <code>[...]</code>.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="basics.html#cb79-1" tabindex="-1"></a>llama_age[<span class="st">&quot;Zaphod&quot;</span>]</span></code></pre></div>
+<pre><code>## Zaphod 
+##      9</code></pre>
+<p><strong>START EXERCISE 1.4</strong></p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="module-1-setup.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-basics.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>
